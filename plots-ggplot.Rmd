@@ -4,3 +4,34 @@ author: "Miquel Murillo Saez"
 date: "2023-04-24"
 output: html_document
 ---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+library(readxl)
+library(here)
+```
+```{r}
+ca_np <- read_csv(here("data", "ca_np.csv"))
+names(ca_np)
+head(ca_np)
+summary(ca_np)
+```
+
+```{r}
+ci_np <- read_excel(here("data","ci_np.xlsx"))
+```
+
+```{r}
+ggplot(data = ci_np, aes(x = year, y = visitors)) +
+  geom_line()
+```
+
+```{r}
+gg_base +
+  geom_line(
+    color = "red",
+    linetype = "dashed"
+  )
+```
+
