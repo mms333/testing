@@ -13,7 +13,7 @@ library(here)
 ```
 
 ```{r read_csv_practice}
-ca_np <- read_csv(here("data","ca_np.csv"))
+ca_np <- read_csv(here("data","ca_np.csv")) ##Saved ca_np data as an object
 ```
 
 ```{r data_ca_np_experiments}
@@ -31,4 +31,42 @@ names(ci_np)
 head(ci_np, n = 4)
 summary(ci_np) ##This function shows global data
 view(ci_np) ##This opens the file in RStudio
+```
+
+```{r ggplot_practice}
+ggplot(data = ci_np, aes(x = year, y = visitors))  + 
+  geom_line() +
+  geom_point()
+##aes() here names the axes
+##The + between geom_type() puts both styles in same graph (in this case its a line with points)
+ggplot_base <- ggplot(data = ci_np, aes(x = year, y = visitors)) ## saved as object to save time in the future
+```
+
+```{r ggplot_experiments}
+ggplot_base_column <- ggplot_base + geom_col() ##This saves this graph as an object for later use
+```
+
+```{r save_graph_as_object_experiment}
+ggplot_base_column
+```
+
+```{r ggplot_experiments_2}
+ggplot_base + geom_area()
+```
+
+```{r ggplot_graph_customising_experiments}
+ggplot_base +
+  geom_line(
+    colour = "blue"
+      ) +
+  geom_point(
+    pch = 18,
+    size = 5,
+    colour = "red",
+    alpha = 1
+  )
+## Customizing things must be separated by a comma
+## Use ?pch to seach for meaning of each number
+## colour needs to be searched on google
+## alpha is the transparency of the dot
 ```
