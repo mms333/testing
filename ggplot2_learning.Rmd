@@ -21,3 +21,14 @@ names(ca_np) ## object names do not need ""
 head(ca_np, n = 3) ## n = is the number of rows to be shown
 head(ca_np)
 ```
+
+```{r readxl_practice}
+ci_np <- read_excel(here("data","ci_np.xlsx"))
+```
+
+```{r data_ci_np_experiments}
+names(ci_np)
+head(ci_np, n = 4)
+summary(ci_np) ##This function shows global data
+view(ci_np) ##This opens the file in RStudio
+```
