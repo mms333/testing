@@ -61,7 +61,7 @@ ggplot_base +
       ) +
   geom_point(
     pch = 18,
-    size = 5,
+    size = 3,
     colour = "red",
     alpha = 1
   )
@@ -69,4 +69,36 @@ ggplot_base +
 ## Use ?pch to seach for meaning of each number
 ## colour needs to be searched on google
 ## alpha is the transparency of the dot
+```
+
+```{r ggplot_graph_customising_by_variable}
+ggplot_base + 
+  geom_point (
+    aes(size = visitors,
+        colour = visitors),
+    alpha = 1
+  )
+```
+
+```{r ggplot_graph_customising_themes}
+ggplot_base + 
+  geom_point (
+    aes(size = visitors,
+        colour = visitors),
+    alpha = 1
+  ) +
+  theme_minimal() #For when i'm lazy for customising
+```
+
+```{r ggplot_graph_axis_labels_and_titles}
+ggplot_base +
+  geom_line() + 
+  theme_bw() +
+  labs(
+    x = "Year",
+    y = "Annual Park Visitors",
+    title = " Channel Islands National Park Visitors",
+    subtitle = "(1963 - 2016)"
+  )
+## Must learn how tf to centre graph titles
 ```
