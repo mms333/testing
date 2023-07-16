@@ -102,3 +102,10 @@ ggplot_base +
   )
 ## Must learn how tf to centre graph titles
 ```
+
+```{r multiseries_ggplot_graphs}
+ggplot(data = ca_np, aes(x = year, y = visitors)) +
+  geom_line(
+  ) ## 5.10 Multi-series ggplot graphs
+```
+
