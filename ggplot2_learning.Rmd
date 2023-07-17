@@ -109,7 +109,24 @@ ggplot_base +
 
 ```{r multiseries_ggplot_graphs}
 ggplot(data = ca_np, aes(x = year, y = visitors, group = park_name)) +
-  geom_line(
-  ) ## 5.10 Multi-series ggplot graphs
+  geom_line() ## 5.10 Multi-series ggplot graph
+ggplot_np <- ggplot(data = ca_np, aes(x = year, y = visitors, group = park_name)) ##Multiseries graph configuration
 ```
 
+```{r ggplot_faceting_graphs}
+##Faceting means having a graph for each series of data. Any change applies to all graphs generated
+ggplot_np +
+  geom_line(show.legend = FALSE) +
+  theme_light() +
+  labs(x = "year", y = "annual visitors") +
+  facet_wrap(~ park_name) ##This changes from one graph to one per data series.
+```
+
+```{r ggplot_graph_exporting}
+ggsave(here("figures", "ggplot_np_graph.jpg"), dpi = 180, width = 8, height = 8) ##This saves last graph run
+```
+
+```{r ggplot_graph_exporting_experiments}
+ggsave(plot = ggplot_base_column, here("figures", "ggplot_base_column.jpg"), width = 20, height = 20, units = "cm")
+##This syntax is used to save any graph if its an object in folder and file specified in here(), units = specifies which units is width and height in
+```
