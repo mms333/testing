@@ -18,3 +18,21 @@ library(kableExtra)
 ```{r pivot_object_lobsters}
 lobsters <- read_xlsx(here("data", "lobsters.xlsx"), skip = 4)
 ```
+
+```{r data_summary}
+
+skimr::skim(lobsters)
+## skimr:: is reminder that skim() belongs to skimr package
+```
+
+```{r pivot_table_learning}
+lobsters %>%
+  group_by(year) %>%
+  summarise(count_by_year = n())
+```
+
+```{r pivot_table_group_by_more_than_one_variable}
+lobsters %>%
+  group_by(site, year) %>%
+  summarise(count_by_site_and_year = n())
+```
