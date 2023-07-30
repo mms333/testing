@@ -32,7 +32,11 @@ lobsters %>%
 ```
 
 ```{r pivot_table_group_by_more_than_one_variable}
-lobsters %>%
+siteyear_summary <- lobsters %>%
   group_by(site, year) %>%
-  summarise(count_by_site_and_year = n())
+  summarise(count_by_siteyear = n(),
+            mean_size_mm = mean(size_mm, na.rm=TRUE),
+            sd_size_mm = sd(size_mm, na.rm=TRUE))
+## na.rm=TRUE fa que es salti les cel·les que son NA
 ```
+
