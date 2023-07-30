@@ -40,3 +40,9 @@ siteyear_summary <- lobsters %>%
 ## na.rm=TRUE fa que es salti les cel·les que son NA
 ```
 
+```{r table_formating}
+siteyear_summary %>%
+  kable()
+```
+
+## 6.4.6 Activity
